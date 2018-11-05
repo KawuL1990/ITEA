@@ -1,0 +1,26 @@
+.classWorkLink{
+    margin-right: 20px;
+}
+.selected{
+    margin-right: 20px;
+    color: red
+}
+.ClassWork{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+}
+
+.person{
+    margin: 0;
+    padding: 0;
+}
+
+.ListItemTrue{
+    margin-bottom: 20px;
+    border: green 1px solid;
+}
+.ListItemFalse{
+    border: red 1px solid;
+    margin-bottom: 20px;
+}
