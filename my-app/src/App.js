@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router'
-import { BrowserRouter } from "react-router-dom";
-import Main from './Main'
-import About from './About'
-import List from './List'
-import ListItem from './ListItem'
-import Navigation from './Navigation'
-import './App.css';
+import { NavLink } from 'react-router-dom'
+
+import ClassWork from './classWork/ClassWork'
+import HomeWork from './homeWork/HomeWork'
+import './App.css'
 
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
         <div className="App">
 
-          <Navigation />
+            <div className="navigation">
+                <NavLink className="link" activeClassName="activeLink" to="/classWork">ClassWork</NavLink>
+                <NavLink className="link" activeClassName="activeLink" to="/homeWork">HomeWork</NavLink>
+            </div>
 
+        
             <Switch>
-              <Route path="/" exact component={Main}/>
-              <Route path="/about" component={About}/>
-              <Route path="/list" exact component={List}/>
-              <Route path="/list/:itemId" exact component={ListItem}/>
+                <Route path="/classWork" component={ClassWork}/>
+                <Route path="/homeWork" component={HomeWork}/>
             </Switch>
         </div>
-      </BrowserRouter>
     );
   }
 }

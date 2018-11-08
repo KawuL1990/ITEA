@@ -1,0 +1,32 @@
+.classWorkLink{
+    margin-right: 20px;
+}
+.selected{
+    margin-right: 20px;
+    color: red
+}
+.ClassWork{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.Choose{
+    color: red;
+    display: block;
+}
+.Toggler{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.togglerContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.Form{
+    display: flex;
+    flex-direction: column;
+}
+  
