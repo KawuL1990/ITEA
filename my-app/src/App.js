@@ -1,29 +1,44 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router'
-import { NavLink } from 'react-router-dom'
-
-import ClassWork from './classWork/ClassWork'
-import HomeWork from './homeWork/HomeWork'
+// import { Switch, Route } from 'react-router'
+// import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import ToDoForm from './ToDoForm'
+import ToDoItem from './ToDoItem'
 import './App.css'
 
 class App extends Component {
-  render() {
-    return (
-        <div className="App">
-
-            <div className="navigation">
-                <NavLink className="link" activeClassName="activeLink" to="/classWork">ClassWork</NavLink>
-                <NavLink className="link" activeClassName="activeLink" to="/homeWork">HomeWork</NavLink>
+    render() {
+        const { todos, deleteTodo, changeStatus } = this.props;
+        return (
+            <div className="App">
+                <ToDoForm />
+                {
+                    todos.map(item => 
+                        <ToDoItem key={item.id} {...item} deleteTodo={deleteTodo} changeStatus={changeStatus}/>
+                    )
+                }
             </div>
-
-        
-            <Switch>
-                <Route path="/classWork" component={ClassWork}/>
-                <Route path="/homeWork" component={HomeWork}/>
-            </Switch>
-        </div>
-    );
-  }
+        );
+    }
 }
 
-export default App;
+let mapStateToProps = (state) => ({
+    todos: state.todos
+})
+
+let mapDispatchToProps = (dispatch) => ({
+    deleteTodo: (id) => {
+        dispatch({
+            type: "DELETE_TODO",
+            payload: id
+        })
+    },
+    changeStatus: (id) => {
+        dispatch({
+            type: "CHANGE_TODO",
+            payload: id
+        })
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

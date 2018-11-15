@@ -1,6 +1,7 @@
 .App{
   display: flex;
-  align-self: center;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 .link{
@@ -10,4 +11,12 @@
 .activeLink{
   color: red;
   margin-right: 20px;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+}
+.textarea{
+  height: 100px;
+  resize: none;
 }
